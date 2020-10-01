@@ -1,0 +1,371 @@
+.imgbutton{
+    transform: rotate(-90deg) translateY(-2px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:center;
+    align-items: center;
+    align-content: center; 
+    height : 24px;
+    width : 80px;
+    margin-bottom: 60px;
+    transform-origin: 50px 22px;
+}
+.SideNavbar{
+    align-self: stretch;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:flex-start;
+    align-items:center;
+    align-content:flex-start;
+    background-color: #282828;
+}
+.SideNavbar .closed{
+    border : none;
+}
+.CompanionBar{
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    background-color:rgb(50, 53, 53);
+    width:24px;
+    border-right: solid 1px #171717;
+}
+.SideNavContent{
+    align-self: stretch;
+    flex-direction: column;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: flex-end;
+    background-color:#262c2f;
+}
+.left{
+    flex-direction: row;
+    border-right: solid 1px #171717;
+}
+.VirtualList{
+    position: relative;
+    width: 300px;
+    height: 720px;
+}
+.VirtualListContent{
+    width: 300px;
+    height: 150px;
+}
+.ImgPreview{
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:center;
+    align-items:center;
+    align-content:center;
+    border-bottom: solid 1px black;
+    left: 0px;
+    top: 0px;
+    width: 150px;
+    height: 150px;
+}
+.ImgPreview:nth-child(odd) {border-right: solid 1px black;}
+.Foreground{
+    position: absolute;
+    z-index: 100;
+    transition: transform 0.3s;
+}
+.selected .Foreground{
+    transform: translate(-2px,2px);
+}
+.Background{
+    position: absolute;
+    z-index: 0;
+    background-color: #4c4c4c;
+    transition: transform 0.3s ease-in-out, transform 0.3s;
+}
+.selected .Background{
+    transform: translate(2px,-2px);
+    background-color: #2CA8FF;
+}
+.selected .Image{
+    position: absolute;
+    border: solid 1px black;
+    user-select: none;
+    width : 150px;
+}
+.CheckBox{
+    position: absolute;
+    z-index: 1000;
+    max-width: 20px;
+    max-height: 20px;
+    bottom: -10px;
+    left: -10px;
+    filter: invert(1) brightness(35%) sepia(100%) hue-rotate(172deg) saturate(2000%);
+    filter: invert(1) brightness(35%) sepia(100%) hue-rotate(var(--hue-value)) saturate(2000%);
+}
+.right{
+    flex-direction: row-reverse;
+    border-left: solid 1px #171717;
+}
+.right .CompanionBar{
+    border-left:solid 1px #171717;
+}
+.right .labelbutton{
+    transform: rotate(-90deg) translateY(-1px) ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:center;
+    align-items: center;
+    align-content: center; 
+    height : 24px;
+    width : 80px;
+    margin-bottom: 60px;
+    transform-origin: 50px 22px;
+}
+.EditorContainer{
+    align-self: stretch;
+    flex: 0 0 calc(100% - 120px);
+    height: calc(100% - 120px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:flex-start;
+    align-items: center;
+    align-content: flex-start;
+    overflow: hidden;
+    
+}
+.MainEditor{
+    align-self: stretch;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color:#282828;
+}
+.Editor{
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+}
+.Viewport{
+position: relative;
+}
+.track-horizontal{
+    cursor:none;
+    height:6px;
+}
+.track-vertical{
+    cursor: none;
+    width:6px;
+}
+.ImgEditor{
+    position: absolute;
+    top:0;
+    left:0;
+    cursor:none;
+}
+.ImgCanvas:hover{
+    cursor: none;
+}
+.MousePos{
+    position: absolute;
+    color:white;
+    font-size:15px;
+    background-color:#4c4c4c;
+    opacity:0.8;
+    padding:5px;
+    user-select:none;
+    pointer-events: none;
+    z-index: 100;
+    width:fit-content;
+}
+.Cursor{
+    position: absolute;
+    width:6px;
+    height:6px;
+    transform:translate(-50%,-50%);
+    border-radius: 50%;
+    pointer-events: none;
+    border: 2px solid white;
+    background-color:white;
+    z-index: 100000;
+}
+.LabelTool{
+    align-self: stretch;
+    flex:1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    align-items: center;
+    align-content: flex-start;
+}
+.HeaderTool{
+    position: relative;
+    align-self: stretch;
+    box-sizing: border-box;
+    padding:0 25px;
+    color: white;
+    font-size: 15px;
+    user-select: none;
+    cursor: pointer;
+    display : flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    align-items: center;
+    align-content: space-between;
+    border-bottom: 1px solid black;
+}
+.HeaderTool:hover .Marker{
+    transform:translate(5px);
+}
+.active{
+    background-color:rgba(0,0,0,0.05);
+}
+.active .Marker{
+    transform:translate(5px);
+    background-color:#009efd;
+}
+.HeaderGroup {
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+  }
+  .Marker {
+    position: absolute;
+    height: calc(100% - 4px);
+    width: 5px;
+    top: 2px;
+    left: -5px;
+    background-color: #009efd;
+    transition: background-color 0.3s ease-in-out, transform 0.3s;
+  }
+  .Icon{
+      max-width: 20px;
+      max-height: 20px;
+      margin-right:20px;
+      filter: brightness(0) invert(1);
+  }
+  .LabelContent{
+      align-self: stretch;
+      box-sizing: border-box;
+      height:0;
+      transition: height 0.3s ease-in-out;
+      overflow: hidden;
+      display: flex;
+      flex-direction: nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    
+  }
+  .LabelList{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+  }
+  .EmptyLabelList{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      width: 150px;
+      color: white;
+      font-size:17px;
+      user-select:none;
+  }
+
+  .EmptyLabelList >h1{
+    filter: brightness(0) invert(1);
+    max-width: 80px;
+    max-height: 80px;
+    margin-bottom: 20px;
+    user-select: none;
+  }
+  .EmptyLabelList>p{
+      font-size:16px;
+      font-weight:600;
+  }
+  .UploadButton{
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+  }
+  .UploadButton input[type="file"]{
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      font-size: 100px;
+  }
+  .LabelField{
+      background-color: transparent;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+  }
+  .LabelListContent{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content:flex-start;
+      align-items: center;
+      align-content: flex-start;
+
+  }
+  .LabelFieldWrapper{
+    
+      left: calc(-100% - 5px);
+      transition: left 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      align-content: space-between;
+  }
+  .Content{
+      flex: 1;
+      height: 100%;
+      padding: 0 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      align-content: space-between;
+  }
+  .ContentWrapper{
+      align-self: stretch;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+  }

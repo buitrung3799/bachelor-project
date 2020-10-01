@@ -1,0 +1,11 @@
+.jumbo-image {
+    background-position: center center;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+.jumbotext{
+    color:skyblue;
+    margin-top:55px;
+}

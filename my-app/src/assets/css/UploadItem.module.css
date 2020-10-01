@@ -1,0 +1,32 @@
+.wrapperItem {
+    display: grid;
+    grid-template-columns: calc(100%-50px) 50px;
+    padding: 16px;
+}
+.leftSide{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 8px;
+}
+.progressBar{
+    width: 100%;
+    height: 15px;
+    background-color: lightgray;
+    margin-bottom: 8px;
+    border-radius: 20px;
+}
+.progressBar > div{
+    height: 15px;
+    background-color: green;
+    border-radius:20px;
+}
+.leftSide > label{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align:left;
+}
+.percentage{
+    margin-left: 12px;
+}
