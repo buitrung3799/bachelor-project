@@ -1,1 +1,1 @@
-# bachelor-project
+# Labeling tool for medical images
